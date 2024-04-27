@@ -25,10 +25,12 @@ def edit(index):
         return render_template("edit.html", todo=todo, index=index)
     
 
-@app.route("/check/<int:index>")    
+@app.route("/check/<int:index>", methods=["POST"])
 def check(index):
-    todos[index]['done'] = not todos[index]['done']
-    return redirect(url_for("index"))
+    if request.method == "POST":
+        todos[index]['done'] = not todos[index]['done']
+        return redirect(url_for("index"))
+
 
 
 @app.route("/delete/<int:index>")

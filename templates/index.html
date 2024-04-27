@@ -1,25 +1,25 @@
+<!DOCTYPE html>
 <html>
-    <head>
-<title> simple-TODO app</title>
-    </head>
-
-    <body>
-<h1> Todos</h1>
-<ul>
-    {% for todo in todos %}
-    <li>
-        <input type="checkbox" name="done" {% if todo['done'] %} checked {%endif%} onchange="this.form.submit()">
-        <span {%if todo['done']%} style="text-decoration: line-through;" {%endif%}>{{ todo['task'] }} </span>
-        <a href="{{ url_for('edit', index=loop.index0 )}}">Edit</a>
-        <a href="{{ url_for('delete', index=loop.index0 )}}">Delete</a>
-    </li>
-    {% endfor %}
-</ul>
-
-    <form action="{{ url_for('add')}}" method="post">
+<head>
+    <title>Simple TODO app</title>
+</head>
+<body>
+    <h1>Todos</h1>
+    <ul>
+        {% for todo in todos %}
+        <li>
+            <form action="{{ url_for('check', index=loop.index0) }}" method="POST">
+                <input type="checkbox" name="done" {% if todo['done'] %} checked {% endif %} onchange="this.form.submit()">
+            </form>
+            <span style="{% if todo['done'] %} text-decoration: line-through; {% endif %}">{{ todo['task'] }}</span>
+            <a href="{{ url_for('edit', index=loop.index0) }}">Edit</a>
+            <a href="{{ url_for('delete', index=loop.index0) }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('add') }}" method="post">
         <input type="text" name="todo">
-        <button type="submit"> Add Todo </button>
-
+        <button type="submit">Add Todo</button>
     </form>
-    </body>
+</body>
 </html>
