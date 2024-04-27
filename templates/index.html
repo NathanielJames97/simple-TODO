@@ -7,7 +7,10 @@
 <h1> Todos</h1>
 <ul>
     {% for todo in todos %}
-    <li>{{ todo['task'] }}</li>
+    <li>
+        <input type="checkbox" name="done" {% if todo['done'] %} checked {%endif%} onchange="this.form.submit()">
+        {{ todo['task'] }}
+    </li>
     {% endfor %}
 </ul>
 
