@@ -5,3 +5,10 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add drop shadow */
     padding: 20px; /* Add some padding for better spacing */
 }
+a.btn.btn-primary.btn-sm.ml-2 {
+    margin: 5px;
+  }
+
+  .list-group-item.done {
+    background-color: rgba(144, 238, 144, 0.5); /* Pale low opacity green */
+}
