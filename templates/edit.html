@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Todo</title>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Optional: Add custom CSS for additional styling -->
+    <style>
+        /* Add custom styles here */
+    </style>
+</head>
 <body>
 
-<form action="{{url_for('edit', index=index) }}" method="post">
-    <input type="text" name="todo" value="{{ todo['task']}}">
-    <button type="submit" >Save</button>
-</form>
+<div class="container mt-5">
+    <h1>Edit Todo</h1>
+    <form action="{{ url_for('edit', index=index) }}" method="post">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="todo" value="{{ todo['task'] }}" placeholder="Enter task">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Link Bootstrap JS (optional) -->
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 
 </body>
-
-
-
-
 </html>
