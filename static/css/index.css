@@ -9,6 +9,34 @@ a.btn.btn-primary.btn-sm.ml-2 {
     margin: 5px;
   }
 
-  .list-group-item.done {
+/* CSS to style the list item when checkbox is checked */
+.list-group-item.checked {
     background-color: rgba(144, 238, 144, 0.5); /* Pale low opacity green */
 }
+
+.todo-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%; /* Adjust the width as needed */
+}
+
+/* Add transition for smooth animations */
+.list-group-item {
+    transition: background-color 0.3s ease;
+}
+
+/* Style the list item when checkbox is checked */
+.list-group-item.checked {
+    background-color: rgba(144, 238, 144, 0.5); /* Pale low opacity green */
+}
+
+.todo-title {
+    align-self: center;
+    text-align: center;
+    padding: 15px;
+}
+input.form-check-input:checked {
+    background-color: darkgreen;
+  }
