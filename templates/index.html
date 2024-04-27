@@ -7,12 +7,12 @@
 <h1> Todos</h1>
 <ul>
     {% for todo in todos %}
-    <li>{{ todo['todo'] }}</li>
+    <li>{{ todo['task'] }}</li>
     {% endfor %}
 </ul>
 
     <form action="{{ url_for('add')}}" method="post">
-        <input type="text" name="task">
+        <input type="text" name="todo">
         <button type="submit"> Add Todo </button>
 
     </form>
